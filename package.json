@@ -1,0 +1,16 @@
+{
+    "name": "vite-1st-project",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+      "dev:frontend": "cd frontend && npm run dev",  
+      "dev:backend": "cd backend && node server.js", 
+      "start": "npm run dev"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "concurrently": "^8.2.2"
+    }
+  }
+  
