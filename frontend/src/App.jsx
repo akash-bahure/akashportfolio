@@ -14,7 +14,6 @@ import ErrorBoundary from './assets/supportingFiles/ErrorBoundary.jsx';
 import NotFound from './components/NotFound'; 
 import Footer from './components/footer.jsx';
 import './index.css';
-import './assets/vendor/aos/aos.css';
 import './assets/vendor/bootstrap/css/bootstrap.min.css';
 import './assets/vendor/bootstrap-icons/bootstrap-icons.css';
 import './assets/vendor/boxicons/css/boxicons.min.css';
