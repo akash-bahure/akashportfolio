@@ -8,4 +8,10 @@ export default defineConfig({
       '/api': 'http://localhost:3000',
     },
   },
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: '/src/main.js', 
+    },
+  },
 });
