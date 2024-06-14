@@ -5,14 +5,14 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'http://localhost:5000',
     },
   },
   build: {
     outDir: './dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: '../frontend/src/main.jsx', 
+      input: './frontend/src/main.jsx', 
     },
   },
 });
