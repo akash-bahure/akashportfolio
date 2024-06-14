@@ -1,10 +1,10 @@
 {
-  "name": "vite-1st-project",
+  "name": "frontend",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --config ../frontend/vite.config.js",
+    "build": "vite build --config ../frontend/vite.config.cjs",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "dev:frontend": "cd frontend && npm run dev",
