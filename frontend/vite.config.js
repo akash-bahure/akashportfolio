@@ -8,14 +8,11 @@ export default defineConfig({
       '/api': 'http://localhost:5000',
     },
   },
-  rollupOptions: {
-      input: './frontend/src/main.jsx', 
-    },
   build: {
     outDir: './dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: './frontend/src/main.jsx', 
+      input: '../frontend/src/main.jsx', 
     },
   },
 });
