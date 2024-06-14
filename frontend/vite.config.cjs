@@ -14,13 +14,21 @@ export default defineConfig({
     rollupOptions: {
       input: './frontend/src/main.jsx',
       external: [
-        'react', 
-        'react-dom', 
-        'react-router-dom', 
-        'axios', 
-        'react-markdown', 
-        'react-toastify'
+        'react',
+        'react-dom',
+        'react-router-dom',
+        'axios',
+        'react-markdown',
+        'react-toastify',
       ],
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'axios'],
+          markdown: ['react-markdown'],
+          toastify: ['react-toastify'],
+        },
+      },
     },
+    chunkSizeWarningLimit: 1000, 
   },
 });
