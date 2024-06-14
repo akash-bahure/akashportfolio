@@ -34,6 +34,9 @@ const sendEmails = async (ownerMailOptions, userMailOptions) => {
   }
 };
 
+app.post('/', (req,res)=>{
+  res.send("server is started");
+}
 // POST endpoint to handle contact form submissions
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
