@@ -22,13 +22,15 @@ export default defineConfig({
         'react-toastify',
       ],
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom', 'axios'],
-          markdown: ['react-markdown'],
-          toastify: ['react-toastify'],
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          'react-router-dom': 'ReactRouterDOM',
+          axios: 'axios',
+          'react-markdown': 'ReactMarkdown',
+          'react-toastify': 'ReactToastify',
         },
       },
     },
-    chunkSizeWarningLimit: 1000, 
   },
 });
