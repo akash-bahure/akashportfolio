@@ -3,7 +3,7 @@
   
 
   "routes": [
-    { "src": "/api/contact", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/frontend/src/main.jsx" }
+    { "src": "/api/", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/dist/assets" }
   ]
 }
