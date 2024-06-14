@@ -12,8 +12,15 @@ export default defineConfig({
     outDir: './dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: './frontend/src/main.jsx', 
-      external: ['react', 'react-dom', 'react-router-dom', 'axios', 'react-markdown', 'react-toastify'],
+      input: './frontend/src/main.jsx',
+      external: [
+        'react', 
+        'react-dom', 
+        'react-router-dom', 
+        'axios', 
+        'react-markdown', 
+        'react-toastify'
+      ],
     },
   },
 });
