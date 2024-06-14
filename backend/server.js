@@ -34,7 +34,7 @@ const sendEmails = async (ownerMailOptions, userMailOptions) => {
   }
 };
 
-app.post('/', (req,res)=>{
+app.get('/', (req,res)=>{
   res.send("server is started");
 }
 // POST endpoint to handle contact form submissions
