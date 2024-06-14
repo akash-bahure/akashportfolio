@@ -4,7 +4,7 @@
       {
         "src": "frontend/package.json",
         "use": "@vercel/static-build",
-        "config": { "distDir": "frontend/dist" }
+        "config": { "distDir": "./dist" }
       },
       {
         "src": "backend/server.js",
@@ -13,7 +13,7 @@
     ],
     "routes": [
       { "src": "/api/contact", "dest": "/api/contact" },
-      { "src": "/(.*)", "dest": "frontend/dist/$1" }
+      { "src": "/(.*)", "dest": "./dist/$1" }
     ]
   }
   

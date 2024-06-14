@@ -9,9 +9,10 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
+    emptyOutDir: true,
     rollupOptions: {
-      input: './frontend/src/main.jsx', 
+      input: './src/main.jsx', 
     },
   },
 });
