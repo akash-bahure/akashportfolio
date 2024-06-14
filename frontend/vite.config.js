@@ -11,8 +11,6 @@ export default defineConfig({
   build: {
     outDir: './dist',
     emptyOutDir: true,
-    rollupOptions: {
-      input: './frontend/src/main.jsx', 
-    },
+    
   },
 });
