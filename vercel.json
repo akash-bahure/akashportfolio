@@ -4,6 +4,6 @@
 
   "routes": [
     { "src": "/api/", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/dist/assets/$1" }
+    { "src": "/(.*)", "dest": "/dist/assets/main-OjteoTw0.js" }
   ]
 }
