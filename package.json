@@ -10,9 +10,9 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "heroku": "^8.11.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vite": "^5.3.1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
