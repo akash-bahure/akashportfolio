@@ -13,7 +13,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: './frontend/src/main.jsx', 
-      external: ['react', 'react-dom', 'react-router-dom'],
+      external: ['react', 'react-dom', 'react-router-dom', 'axios'],
     },
   },
 });
