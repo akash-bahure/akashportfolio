@@ -12,7 +12,7 @@ export default defineConfig({
     outDir: './dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: './frontend/src/main.jsx', 
+      input: '../frontend/src/main.jsx', 
     },
   },
 });
