@@ -11,26 +11,6 @@ export default defineConfig({
   build: {
     outDir: '../dist',
     emptyOutDir: true,
-    rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        'react-router-dom',
-        'axios',
-        'react-markdown',
-        'react-toastify',
-      ],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          'react-router-dom': 'ReactRouterDOM',
-          axios: 'axios',
-          'react-markdown': 'ReactMarkdown',
-          'react-toastify': 'ReactToastify',
-        },
-      },
-    },
     chunkSizeWarningLimit: 1000,
   },
 });
