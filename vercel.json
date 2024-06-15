@@ -21,11 +21,11 @@
         "dest": "/"
       },
       {
-        "src":"/blog/",
+        "src":"/blog/:slug",
         "dest":"/"
       },
       {
-        "src":"*",
+        "src":"(.*)",
         "dest":"/"
       }
     ]
