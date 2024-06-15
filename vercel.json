@@ -21,7 +21,7 @@
         "dest": "/"
       },
       {
-        "src":"/blog/:slug",
+        "src":"/blog/(.*)",
         "dest":"/"
       },
       {
