@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from './react';
+import React, { useEffect, useRef, useState } from 'react';
 import portfolioImg1 from '../assets/img/portfolio/project1.jpg'; // Ensure this path is correct
 import portfolioImg2 from '../assets/img/portfolio/project2.jpg'; // Ensure this path is correct
 import portfolioImg3 from '../assets/img/portfolio/project3.jpg'; // Ensure this path is correct

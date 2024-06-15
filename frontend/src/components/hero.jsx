@@ -1,4 +1,4 @@
-import React from './react'
+import React from 'react'
 import TypedText from  '../assets/supportingFiles/typed';
 function Hero() {
   return (
