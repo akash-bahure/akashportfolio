@@ -15,7 +15,19 @@
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "/backend/server.js" },
-      { "src": "/(.*)", "dest": "/dist/$1" }
+      { "src": "/(.*)", "dest": "/dist/$1" },
+      {
+        "src": "/allblogs",
+        "dest": "/"
+      },
+      {
+        "src":"/blog/:slug",
+        "dest":"/"
+      },
+      {
+        "src":"*",
+        "dest":"/"
+      }
     ]
   }
   
