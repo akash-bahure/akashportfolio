@@ -15,11 +15,9 @@
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "/backend/server.js" },
-      { "src": "/(.*)", "dest": "/dist/$1" }
+      { "src": "/(.*)", "dest": "/dist/$1" },
      
-    ],
-    "rewrites":[
-      { "source": "/blog/(.*)", "destination": "/dist/$1" }
+      { "source": "/(.*)", "destination": "/dist/$1", "status":200 }
     ]
   }
   
