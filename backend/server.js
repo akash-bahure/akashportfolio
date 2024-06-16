@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import axios from 'axios';
 dotenv.config();
 
 const app = express();
@@ -77,8 +78,87 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+
+app.get('/api/blogs', async (req, res) => {
+  const { limit } = req.query; 
+  const query = `
+    query {
+      user(username: "${process.env.HASHNODE_USERNAME}") {
+        publications(first: ${limit || 50}) {
+          edges {
+            node {
+              posts(first: ${limit || 50}) { 
+                edges {
+                  node {
+                    title
+                    brief
+                    slug
+                    coverImage {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await axios.post('https://gql.hashnode.com/', { query }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const posts = response.data.data.user.publications.edges.map(edge => edge.node.posts.edges.map(postEdge => postEdge.node));
+    res.json(posts.flat());
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    res.status(500).json({ error: 'Error fetching blogs' });
+  }
+});
+
+const host = process.env.HASHNODE_HOST;
+app.get('/api/blogs/:slug', async (req, res) => {
+  const { slug } = req.params;
+  const query = `
+    query SinglePublicationPost($host: String, $slug: String!) {
+      publication(host: $host) {
+        post(slug: $slug) {
+          title
+          content {
+            markdown
+          }
+          coverImage {
+            url
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await axios.post('https://gql.hashnode.com/', {
+      query,
+      variables: { host, slug }
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const postData = response.data.data.publication.post;
+    res.json(postData);
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    res.status(500).json({ error: 'Error fetching post' });
+  }
+});
+
 // Start the server
 app.listen(port_no, () => {
-  console.log(process.env.BRAVO_SMTP_HOST)
   console.log(`Server is running on port ${port_no}`);
 });

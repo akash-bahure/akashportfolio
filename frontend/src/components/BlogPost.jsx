@@ -5,59 +5,20 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import CodeBlock from '../assets/supportingFiles/codeblock.jsx'; 
 import '../assets/css/blogpost.css';
+import axios from 'axios';
 
 const BlogPost = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { slug } = useParams();
-  const host = "bhaveshjadhav.hashnode.dev";
   const postContainerRef = useRef(null);
 
   useEffect(() => {
     const fetchPost = async () => {
-      const query = `
-        query SinglePublicationPost($host: String, $slug: String!) {
-          publication(host: $host) {
-            id
-            title
-            displayTitle
-            author {
-              username
-              name
-            }
-            post(slug: $slug) {
-              title
-              content {
-                markdown
-              }
-              coverImage {
-                url
-              }
-            }
-          }
-        }
-      `;
-
       try {
-        const response = await fetch('https://gql.hashnode.com/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            query,
-            variables: { host, slug },
-          }),
-        });
-
-        const result = await response.json();
-        if (result.errors) {
-          throw new Error(result.errors[0].message);
-        }
-
-        const postData = result.data.publication.post;
-        setPost(postData);
+        const response = await axios.get(`/api/blogs/${slug}`);
+        setPost(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching post:', error);
@@ -67,7 +28,7 @@ const BlogPost = () => {
     };
 
     fetchPost();
-  }, [host, slug]);
+  }, [slug]);
 
   useEffect(() => {
     const options = {
@@ -79,7 +40,7 @@ const BlogPost = () => {
     const handleIntersection = (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate'); // Add animate class when the element is visible
+          entry.target.classList.add('animate');
           observer.unobserve(entry.target);
         }
       });

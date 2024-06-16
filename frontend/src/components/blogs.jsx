@@ -1,57 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const username = "bhavesh002"; // Your Hashnode username
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const query = `
-        query {
-          user(username: "${username}") {
-            publications(first: 3) {
-              edges {
-                node {
-                  posts(first: 3) {
-                    edges {
-                      node {
-                        title
-                        brief
-                        slug
-                        coverImage {
-                          attribution
-                          photographer
-                          url
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `;
-
       try {
-        const response = await fetch('https://gql.hashnode.com/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ query })
-        });
-
-        const result = await response.json();
-        if (result.errors) {
-          throw new Error(result.errors[0].message);
-        }
-
-        const posts = result.data.user.publications.edges.map(edge => edge.node.posts.edges.map(postEdge => postEdge.node));
-        setBlogs(posts.flat());
+        const response = await axios.get('/api/blogs?limit=3');
+        setBlogs(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -61,7 +21,7 @@ const Blogs = () => {
     };
 
     fetchBlogs();
-  }, [username]);
+  }, []);
 
   useEffect(() => {
     const options = {
@@ -73,7 +33,7 @@ const Blogs = () => {
     const handleIntersection = (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate'); // Add animate class when the element is visible
+          entry.target.classList.add('animate');
           observer.unobserve(entry.target);
         }
       });
@@ -104,8 +64,6 @@ const Blogs = () => {
         <div className="section-title">
           <h2>My Blogs</h2>
           <p>Welcome to my learning journey! Explore my latest articles where I share insights and discoveries from topics I'm currently exploring. From beginner-friendly explanations to practical tips, my blog is a place where I simplify complex ideas and share my learning adventures. Join me in discovering new perspectives and expanding our knowledge together!</p>
-
-
         </div>
         <div className="row">
           {blogs && blogs.length > 0 && blogs.map((blog, index) => (
