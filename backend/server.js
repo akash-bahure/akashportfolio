@@ -83,8 +83,8 @@ app.post('/api/contact', async (req, res) => {
 
 
 
-app.get('/api/blogs/:limit', async (req, res) => {
-  const limit = parseInt(req.params.limit, 10);
+app.get('/api/blogs/', async (req, res) => {
+  const { limit } = req.query;
   const query = `
     query {
       user(username: "${process.env.HASHNODE_USERNAME}") {
