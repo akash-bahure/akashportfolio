@@ -42,9 +42,7 @@ const sendEmails = async (ownerMailOptions, userMailOptions) => {
 // app.use(express.static('../dist'));
 // POST endpoint to handle contact form submissions
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
@@ -210,6 +208,9 @@ app.get('/api/projects/:id', (req, res) => {
 });
 
 app.get('/api/projects')
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
 // Start the server
 app.listen(port_no, () => {
   console.log(`Server is running on port ${port_no}`);
