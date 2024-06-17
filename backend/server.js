@@ -39,8 +39,12 @@ const sendEmails = async (ownerMailOptions, userMailOptions) => {
   }
 };
 
-app.use(express.static('../dist'));
+// app.use(express.static('../dist'));
 // POST endpoint to handle contact form submissions
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;

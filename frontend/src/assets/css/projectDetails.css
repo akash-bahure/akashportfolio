@@ -6,19 +6,9 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
     }
-    .project-title {
-        color: rgb(0, 0, 0);
-        padding: 10px;
-        margin-left: -3%;
-        margin-top: -2%;
-        margin-right: -3%;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-        
-    }
+    
     .project-title h1{
-        font-size: large;
+        font-size: 2rem;
         padding-top: 18px;
         font-weight: bold;
         padding-left: 20px;
@@ -142,13 +132,9 @@
         .carousel-controls {
         display: none;
         }
-        .project-title{
-            margin-left: -7%;
-            margin-top: -6%;
-            margin-right: -8%;
-        }
+       
         .project-title h1{
-            font-size: 1.2rem;
+            font-size: 1.7rem;
         }
         .carousel-container {
             margin-top: 6vh;
