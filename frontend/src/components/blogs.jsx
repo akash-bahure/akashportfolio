@@ -12,6 +12,7 @@ const Blogs = () => {
       try {
         const response = await axios.get('/api/blogs?limit=3');
         setBlogs(response.data);
+        console.log(response.data)
         setLoading(false);
       } catch (error) {
         console.error('Error fetching blogs:', error);
