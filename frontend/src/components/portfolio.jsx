@@ -1,12 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
-import portfolioImg1 from '../assets/img/portfolio/project1.jpg'; // Ensure this path is correct
-import portfolioImg2 from '../assets/img/portfolio/project2.jpg'; // Ensure this path is correct
-import portfolioImg3 from '../assets/img/portfolio/project3.jpg'; // Ensure this path is correct
-
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+ // Ensure you have appropriate CSS
 
 const Portfolio = () => {
   const portfolioRef = useRef(null);
+  const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState('*');
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get('/api/projects'); // Adjust the URL as necessary
+        setProjects(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   useEffect(() => {
     const options = {
@@ -38,18 +52,17 @@ const Portfolio = () => {
         });
       }
     };
-  }, []);
+  }, [projects]);
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
 
-    // Trigger animation by removing and adding animate class after a short delay
     const items = portfolioRef.current.querySelectorAll('.portfolio-item');
     items.forEach(item => {
       item.classList.remove('animate');
       setTimeout(() => {
         item.classList.add('animate');
-      }, 10); // Adjust the delay as needed
+      }, 10);
     });
   };
 
@@ -59,7 +72,6 @@ const Portfolio = () => {
         <div className="section-title">
           <h2>Portfolio</h2>
           <p>Welcome to my portfolio! Here, I showcase my projects and achievements. From web development to design and beyond, each project represents my passion for creating meaningful solutions. Dive in to explore how I bring ideas to life and solve challenges through innovative solutions. Let's connect and discuss how we can collaborate on your next project!</p>
-
         </div>
         <div className="col-lg-12 d-flex justify-content-center">
           <ul id="portfolio-flters">
@@ -87,42 +99,29 @@ const Portfolio = () => {
           </ul>
         </div>
         <div className="row portfolio-container">
-          <div className={`col-lg-4 col-md-6 portfolio-item filter-mini ${activeFilter === '*' || activeFilter === '.filter-mini' ? 'show' : 'hide'}`}>
-            <div className="portfolio-wrap">
-              <div className="portfolio-info">
-                <h4>Personal portfolio</h4>
+          {projects.map((project) => (
+            
+            <div 
+              key={project.id} 
+              className={`col-lg-4 col-md-6 portfolio-item filter-${project.category} ${activeFilter === '*' || activeFilter === `.filter-${project.category}` ? 'show' : 'hide'}`}
+            >
+              <div className="portfolio-wrap">
+              <Link to={`/project/${project.id}`} className="portfolio-source-btn">
+                <div className="portfolio-info">
+                  <h4>{project.name}</h4>
+                </div>
+                {project.images && project.images.length > 0 && (
+        <img src={`/api/project_images/${project.images[0]}`} className="img-fluid" alt={project.name} />
+      )}
+      </Link>
+                <div className="portfolio-links">
+                  
+                  <a href={project.sourceCode} className="portfolio-source-btn">Source code</a>
+                  <a href={project.livePreview} className="portfolio-preview-btn">Live Preview</a>
+                </div>
               </div>
-              <img src={portfolioImg1} className="img-fluid" alt="" />
             </div>
-            <div className="portfolio-links">
-              <a href="" className="portfolio-source-btn">Source code</a>
-              <a href="" className="portfolio-preview-btn">Live Preview</a>
-            </div>
-          </div>
-          <div className={`col-lg-4 col-md-6 portfolio-item filter-mega ${activeFilter === '*' || activeFilter === '.filter-mega' ? 'show' : 'hide'}`}>
-            <div className="portfolio-wrap">
-              <div className="portfolio-info">
-                <h4>Agro Mall</h4>
-              </div>
-              <img src={portfolioImg2} className="img-fluid" alt="" />
-            </div>
-            <div className="portfolio-links">
-              <a href="https://github.com/Bhaveshj008/Agro_Mall_2.0" className="portfolio-source-btn">Source code</a>
-              <a href="https://agromall.000webhostapp.com/" className="portfolio-preview-btn">Live Preview</a>
-            </div>
-          </div>
-          <div className={`col-lg-4 col-md-6 portfolio-item filter-mini ${activeFilter === '*' || activeFilter === '.filter-mini' ? 'show' : 'hide'}`}>
-            <div className="portfolio-wrap">
-              <div className="portfolio-info">
-                <h4>Whether and Notepad app</h4>
-              </div>
-              <img src={portfolioImg3} className="img-fluid" alt="" />
-            </div>
-            <div className="portfolio-links">
-              <a href="https://github.com/Bhaveshj008/whether-notepad-app" className="portfolio-source-btn">Source code</a>
-              <a href="https://weather-notepad-app.vercel.app/" className="portfolio-preview-btn">Live Preview</a>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

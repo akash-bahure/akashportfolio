@@ -1,0 +1,34 @@
+[
+    {
+      "id": 1,
+      "name": "Personal portfolio",
+      "images": ["portfolio/image1.jpg", "agromall/image1.jpg"],
+      "video": "https://www.youtube.com/embed/b-GkaLi5IaM?si=tKH3bmalzb7NCjm2",
+     "description": "# Sample Markdown Content\n\n## Introduction\n\nThis is a sample markdown file to demonstrate various features including **inline code** and **code blocks**.\n\n## Inline Code\n\nYou can include `inline code` by wrapping text with backticks. For example:\n\n- To print \"Hello, World!\" in Python, use the `print(\"Hello, World!\")` statement.\n\n## Code Blocks\n\n### JavaScript Example\n\nHere's a simple JavaScript function to add two numbers:\n\n```javascript\nfunction add(a, b) {\n    return a + b;\n}\n\nconsole.log(add(2, 3)); // Output: 5\n```\n\n### Python Example\n\nHere's a Python function to calculate the factorial of a number:\n\n```python\ndef factorial(n) {\n    if n == 0 {\n        return 1;\n    } else {\n        return n * factorial(n-1);\n    }\n}\n\nprint(factorial(5)) // Output: 120\n```\n\n### HTML Example\n\nHere's an example of an HTML code block for a simple webpage structure:\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Sample Webpage</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n    <p>This is a sample webpage.</p>\n</body>\n</html>\n```\n\n## Embedding YouTube Video\n\nTo embed a YouTube video in markdown, you can use an HTML `iframe` tag. For example:\n\n```html\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\" frameborder=\"0\" allowfullscreen></iframe>\n```\n\n## Conclusion\n\nThis markdown content provides examples of inline code, code blocks in different programming languages, and embedding a YouTube video. Markdown is a versatile language for creating formatted text with ease.",
+    "category": "mini",
+    "sourceCode": "https://github.com/Bhaveshj008/BhaveshJadhavPortfolio/",
+    "livePreview": "https://personal-portfolio.vercel.app/"
+    },
+    {
+      "id": 2,
+      "name": "Agro Mall",
+      "type": "filter-mega",
+      "images": ["agromall/image1.jpg"],
+      "description": "Detailed description in Markdown format",
+    "category": "mega",
+    "sourceCode": "https://github.com/Bhaveshj008/Agro_Mall_2.0",
+    "livePreview": "https://agromall.000webhostapp.com/"
+    },
+    {
+      "id": 3,
+      "name": "Weather and Notepad app",
+      "type": "filter-mini",
+      "images": ["whetherapp/image1.jpg"],
+      "description": "Detailed description in Markdown format",
+      "category": "mini",
+      "sourceCode": "https://github.com/Bhaveshj008/weather-notepad-app",
+      "livePreview": "https://weather-notepad-app.vercel.app/"
+    }
+    
+  ]
+  

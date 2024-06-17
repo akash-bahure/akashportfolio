@@ -10,6 +10,7 @@ import Blogs from './components/blogs.jsx';
 import AllBlogs from './components/AllBlogs.jsx';
 import BlogPost from './components/BlogPost';
 import ContactForm from './components/contact.jsx';
+import ProjectDetails from './components/projectDetails.jsx';
 import ErrorBoundary from './assets/supportingFiles/ErrorBoundary.jsx';
 import NotFound from './components/NotFound'; 
 import Footer from './components/footer.jsx';
@@ -49,6 +50,10 @@ function App() {
       element:<><Header/><main id="main"><BlogPost/></main></>,
     },
     {
+      path:'/project/:id',
+      element:<><Header/><main id="main"><ProjectDetails/></main></>,
+    },
+    {
       path:'*',
       element:<NotFound />,
     },
@@ -56,6 +61,7 @@ function App() {
   ]);
 
   return <RouterProvider router={router} />;
+
 }
 
 export default App;

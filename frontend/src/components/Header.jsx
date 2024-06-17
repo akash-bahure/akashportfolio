@@ -5,7 +5,7 @@ import profileImg from '../assets/img/profile-img.jpg';
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const isBlogPage = location.pathname === '/allblogs' || location.pathname.startsWith('/blog/');
+  const isBlogPage = location.pathname === '/allblogs' || location.pathname.startsWith('/blog/') || location.pathname.startsWith('/project');
 
   useEffect(() => {
     if (isMobileMenuOpen) {

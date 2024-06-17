@@ -4,6 +4,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import axios from 'axios';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
 dotenv.config();
 
 const app = express();
@@ -69,7 +72,7 @@ app.post('/api/contact', async (req, res) => {
       </div>
     `,
   };
-  
+
   try {
     await sendEmails(ownerMailOptions, userMailOptions);
     res.status(200).send('Emails sent successfully');
@@ -79,8 +82,9 @@ app.post('/api/contact', async (req, res) => {
 });
 
 
+
 app.get('/api/blogs', async (req, res) => {
-  const { limit } = req.query; 
+  const { limit } = req.query;
   const query = `
     query {
       user(username: "${process.env.HASHNODE_USERNAME}") {
@@ -121,6 +125,8 @@ app.get('/api/blogs', async (req, res) => {
   }
 });
 
+
+
 const host = process.env.HASHNODE_HOST;
 app.get('/api/blogs/:slug', async (req, res) => {
   const { slug } = req.params;
@@ -158,6 +164,48 @@ app.get('/api/blogs/:slug', async (req, res) => {
   }
 });
 
+
+
+
+// Get __dirname equivalent in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use('/api/project_images', express.static(path.join(__dirname, 'project_images')));
+const projectsFilePath = path.join(__dirname, 'projects.json');
+
+// Read the projects data from JSON file
+const projects = JSON.parse(fs.readFileSync(projectsFilePath, 'utf8'));
+
+// Endpoint to get all projects
+app.get('/api/projects', (req, res) => {
+  fs.readFile(projectsFilePath, (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to read projects file' });
+    }
+    const projects = JSON.parse(data);
+    res.json(projects);
+  });
+});
+
+// Endpoint to get a single project by ID
+app.get('/api/projects/:id', (req, res) => {
+  const projectId = parseInt(req.params.id, 10);
+  fs.readFile(projectsFilePath, (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to read projects file' });
+    }
+    const projects = JSON.parse(data);
+    const project = projects.find(p => p.id === projectId);
+    if (project) {
+      res.json(project);
+    } else {
+      res.status(404).json({ error: 'Project not found' });
+    }
+  });
+});
+
+app.get('/api/projects')
 // Start the server
 app.listen(port_no, () => {
   console.log(`Server is running on port ${port_no}`);
