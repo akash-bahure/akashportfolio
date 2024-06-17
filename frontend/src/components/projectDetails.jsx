@@ -51,6 +51,7 @@ const ProjectDetails = () => {
     <div className="project-detail">
         <div className="project-title">
       <h1>Project {project.id} : {project.name}</h1></div>
+      <hr/>
       {project.images && project.images.length > 0 && (
         <div className="carousel-container">
           <div
