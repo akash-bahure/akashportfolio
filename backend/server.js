@@ -208,7 +208,7 @@ app.get('/api/projects/:id', (req, res) => {
 });
 
 app.get('/api/projects')
-app.get('*', (req, res) => {
+app.get('/blog/(.*)', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 // Start the server
