@@ -18,7 +18,7 @@
       { "src": "/blog/(.*)", "dest": "/index.html" },
       { "src": "/project/(.*)", "dest": "/index.html" },
       { "src": "/allblogs", "dest": "/index.html" },
-      { "src": "/(.*)", "dest": "/index.html" }
+      { "src": "/(.*)", "dest": "/dist/index.html" }
         
         
     ]
