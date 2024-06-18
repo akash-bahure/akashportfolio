@@ -15,9 +15,7 @@
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "/backend/server.js" },
-      {
-        "src": "/blog/(.*)", "dest": "dist"
-      }
+      { "src": "/(.*)", "dest": "/dist/index.html" }
         
         
     ]
