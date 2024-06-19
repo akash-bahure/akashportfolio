@@ -63,7 +63,7 @@ const Blogs = () => {
       <div className="container">
         <div className="section-title">
           <h2>My Blogs</h2>
-          <p>Welcome to my learning journey! Explore my latest articles where I share insights and discoveries from topics I'm currently exploring. From beginner-friendly explanations to practical tips, my blog is a place where I simplify complex ideas and share my learning adventures. Join me in discovering new perspectives and expanding our knowledge together!</p>
+          <p>Welcome to my learning journey! Discover my latest articles simplifying complex topics and sharing practical tips. Let's expand our knowledge together!</p>
         </div>
         <div className="row">
           {blogs && blogs.length > 0 && blogs.map((blog, index) => (

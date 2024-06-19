@@ -27,7 +27,7 @@ const About = () => {
       <div className="container">
         <div className="section-title">
           <h2>About</h2>
-          <p>I'm dedicated to building practical applications that positively impact users. My expertise covers both front-end and back-end development, allowing me to contribute effectively to diverse projects. Currently, I'm also enthusiastic about learning DevOps to streamline development processes and deliver efficient solutions.</p>
+          <p>I'm a full-stack developer creating user-focused applications, skilled in front-end and back-end, and learning DevOps.</p>
         </div>
         <div className="row">
           <div className="col-lg-4">
@@ -36,7 +36,7 @@ const About = () => {
           <div className="col-lg-8 pt-4 pt-lg-0 content" ref={contentRef}>
             <h3>Web Developer.</h3>
             <p className="fst-italic">
-            I specialize in creating user-friendly web solutions focused on functionality and usability. With a Master's degree in Computer Applications (MCA), I bring a strong foundation in software development and a passion for solving real-world challenges.
+            I develop user-friendly web solutions. With an MCA degree, I solve real-world challenges through software.
             </p>
             <div className="row">
               <div className="col-lg-6">
@@ -57,7 +57,7 @@ const About = () => {
               </div>
             </div>
             <p>
-            I thrive in collaborative environments where creativity and teamwork drive success. Beyond coding, I actively pursue continuous learning and explore new technologies to deliver innovative solutions.
+            I thrive in collaborative, creative teams. I continuously learn and explore new technologies to deliver innovative solutions.
             </p>
           </div>
         </div>

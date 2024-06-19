@@ -24,7 +24,7 @@ const Skills = () => {
       <div className="container">
         <div className="section-title">
           <h2>Skills</h2>
-          <p>Explore my skills section to discover the strengths I bring to the table. From technical proficiencies to interpersonal abilities, each skill reflects my dedication to excellence and continuous improvement. I am committed to applying these skills effectively to achieve organizational goals and deliver outstanding results.</p>
+          
 
         </div>
         <div className="skills-table">

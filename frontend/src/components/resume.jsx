@@ -43,10 +43,10 @@ const Resume = () => {
 
   return (
     <section id="resume" className="resume" ref={resumeRef}>
-      
+      <div className="container">
         <div className="section-title">
           <h2>My Resume</h2>
-          <p>Welcome to my resume section! I am passionate about contributing my skills and experience to new opportunities. With a focus on continuous learning and growth, I am dedicated to delivering quality results and fostering collaboration. Explore my profile to discover more about my background and how I can bring value to your team.</p>
+          
 
         </div>
       <div className="resume-header">
@@ -122,6 +122,7 @@ const Resume = () => {
       <button className="download-button" onClick={handleDownloadResume}>
         Download Resume
       </button>
+      </div>
     </section>
   );
 };

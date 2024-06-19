@@ -75,8 +75,7 @@ const ContactForm = () => {
         <div className="section-title">
           <h2>Contact</h2>
           <p>
-            If you have any questions, feedback, or just want to say hello, feel free to reach out. I’m always here to help
-            and would love to hear from you. Drop me a message and I’ll get back to you as soon as possible.
+          Feel free to contact me with any questions or feedback. I'm here to help and eager to collaborate with you!
           </p>
         </div>
 

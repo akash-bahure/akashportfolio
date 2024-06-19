@@ -18,6 +18,9 @@ function Header() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false); // Close mobile menu
+  };
 
   return (
     <>
@@ -50,37 +53,37 @@ function Header() {
               {isBlogPage ? (
                 <>
                   <li>
-                    <Link to="/" className="nav-link scrollto active">
+                    <Link to="/" className="nav-link scrollto active" onClick={closeMobileMenu}>
                       <i className="bx bx-home"></i> <span>Home</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#about" className="nav-link scrollto active">
+                    <Link to="/#about" className="nav-link scrollto active" onClick={closeMobileMenu}>
                       <i className="bx bx-user"></i> <span>About</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="nav-link scrollto active">
+                    <Link to="/" className="nav-link scrollto active" onClick={closeMobileMenu}>
                       <i className="bx bx-code-alt"></i> <span>Skills</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="nav-link scrollto active">
+                    <Link to="/" className="nav-link scrollto active" onClick={closeMobileMenu}>
                       <i className="bx bx-file-blank"></i> <span>Resume</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="nav-link scrollto active">
+                    <Link to="/" className="nav-link scrollto active" onClick={closeMobileMenu}>
                       <i className="bx bx-book-content"></i> <span>Portfolio</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="nav-link scrollto active">
+                    <Link to="/" className="nav-link scrollto active" onClick={closeMobileMenu}>
                       <i className="bx bx-book"></i> <span>Blogs</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="nav-link scrollto active">
+                    <Link to="/" className="nav-link scrollto active" onClick={closeMobileMenu}>
                       <i className="bx bx-envelope"></i> <span>Contact</span>
                     </Link>
                   </li>
@@ -88,37 +91,37 @@ function Header() {
               ) : (
                 <>
                   <li>
-                    <a href="#hero" className="nav-link scrollto">
+                    <a href="#hero" className="nav-link scrollto" onClick={closeMobileMenu} >
                       <i className="bx bx-home"></i> <span>Home</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#about" className="nav-link scrollto">
+                    <a href="#about" className="nav-link scrollto"  onClick={closeMobileMenu}>
                       <i className="bx bx-user"></i> <span>About</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#skills" className="nav-link scrollto">
+                    <a href="#skills" className="nav-link scrollto" onClick={closeMobileMenu}>
                       <i className="bx bx-code-alt"></i> <span>Skills</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#resume" className="nav-link scrollto">
+                    <a href="#resume" className="nav-link scrollto" onClick={closeMobileMenu}>
                       <i className="bx bx-file-blank"></i> <span>Resume</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#portfolio" className="nav-link scrollto">
+                    <a href="#portfolio" className="nav-link scrollto" onClick={closeMobileMenu}>
                       <i className="bx bx-book-content"></i> <span>Portfolio</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#blogs" className="nav-link scrollto">
+                    <a href="#blogs" className="nav-link scrollto" onClick={closeMobileMenu}>
                       <i className="bx bx-book"></i> <span>Blogs</span>
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="nav-link scrollto">
+                    <a href="#contact" className="nav-link scrollto" onClick={closeMobileMenu}>
                       <i className="bx bx-envelope"></i> <span>Contact</span>
                     </a>
                   </li>

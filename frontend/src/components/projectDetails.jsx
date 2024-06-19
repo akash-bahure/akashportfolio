@@ -64,10 +64,10 @@ const ProjectDetails = () => {
           </div>
           <div className="carousel-controls">
             <button className="carousel-button" onClick={prevSlide}>
-              Prev
+            <i class="fa-solid fa-arrow-left"></i>
             </button>
             <button className="carousel-button" onClick={nextSlide}>
-              Next
+            <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>

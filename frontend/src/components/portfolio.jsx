@@ -71,7 +71,7 @@ const Portfolio = () => {
       <div className="container" ref={portfolioRef}>
         <div className="section-title">
           <h2>Portfolio</h2>
-          <p>Welcome to my portfolio! Here, I showcase my projects and achievements. From web development to design and beyond, each project represents my passion for creating meaningful solutions. Dive in to explore how I bring ideas to life and solve challenges through innovative solutions. Let's connect and discuss how we can collaborate on your next project!</p>
+          <p>Welcome to my portfolio! Here are some of my created projects in web development and design.</p>
         </div>
         <div className="col-lg-12 d-flex justify-content-center">
           <ul id="portfolio-flters">
