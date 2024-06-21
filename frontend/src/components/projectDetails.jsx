@@ -29,12 +29,7 @@ const ProjectDetails = () => {
     fetchProject();
   }, [id]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % project.images.length);
-    }, 5000); // Change slide every 5 seconds
-    return () => clearInterval(interval);
-  }, [project]);
+ 
 
   const nextSlide = () => {
     setCurrentIndex((currentIndex + 1) % project.images.length);
