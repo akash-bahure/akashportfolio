@@ -23,7 +23,7 @@ const Skills = () => {
     <section id="skills" className="skills" ref={skillsRef}>
       <div className="container">
         <div className="section-title">
-          <h2>Skills</h2>
+          <h2>What I Know</h2>
           
 
         </div>
