@@ -212,3 +212,6 @@ Make a GET request to the `/api/projects` endpoint to fetch all the projects.
 
 - **Description:** The project is deployed on Vercel with a CI/CD pipeline. Any changes pushed to the Git repository trigger a new deployment on Vercel, ensuring the site is always up-to-date with the latest changes.
 - **Steps:** Configure the Vercel project with the GitHub repository, set up environment variables in Vercel, and ensure the `vercel.json` configuration file includes necessary routes and settings.
+
+## Live on 
+-- https://bhavesh-jadhav-portfolio.vercel.app/
