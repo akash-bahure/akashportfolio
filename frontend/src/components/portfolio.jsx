@@ -115,8 +115,8 @@ const Portfolio = () => {
       )}
       </Link>
                 <div className="portfolio-links">
-                  
-                  <a href={project.sourceCode} className="portfolio-source-btn">Source code</a>
+                  <Link to={`/project/${project.id}`} className="portfolio-source-btn">Details</Link> 
+                   <a href={project.sourceCode} className="portfolio-source-btn">Source code</a>
                   <a href={project.livePreview} className="portfolio-preview-btn">Live Preview</a>
                 </div>
               </div>
