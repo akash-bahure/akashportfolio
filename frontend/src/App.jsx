@@ -31,11 +31,11 @@ function App() {
           <Header />
           <Hero/>
           <main id="main">
-            <About />
-            <Skills />
-            <Resume />
             <Portfolio />
             <Blogs />
+            <Skills />
+            <Resume />
+            <About />
             <ContactForm/>
             <Footer/>
           </main>
