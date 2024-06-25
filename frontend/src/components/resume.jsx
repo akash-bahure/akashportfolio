@@ -64,7 +64,7 @@ const Resume = () => {
 
       <div className="resume-section-inner">
         <h2>Objective</h2><hr/>
-        <p>Seeking a web development internship to apply practical front and back-end development experience gained through projects.</p></div>
+        <p>Looking to apply my practical front and back-end development experience in a collaborative and innovative environment. Eager to contribute to impactful projects and continuously enhance my technical skills. </p></div>
         
         <div className={`resume-section ${showResume ? 'show' : ''}`}>
       {showResume && (
@@ -89,6 +89,15 @@ const Resume = () => {
 
           <div className="resume-section-inner">
             <h2>Projects</h2><hr/>
+            <div>
+              <h3>Portfolio Website </h3>
+              <p>
+                  Built using React + Vite (frontend) and Node.js + Express (backend) with custom API endpoints.  <br/>
+                  Integrated Bravo SMTP for secure emails and Hash node API for dynamic blog posts.  <br />
+                  Deployed on Vercel with CI/CD, solving SMTP configuration, API rate limits, and routing issues.  
+                    <a href="https://bhavesh-jadhav-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              </p>
+            </div>
             <div>
               <h3>Weather Notepad App</h3>
               <p>Developed a mini React.js web application integrating weather data and notepad functionality. Utilized Axios for HTTP requests, Material-UI for UI components, and Recharts for data visualization. Features include fetching weather data using the Weatherbit API, displaying weekly average temperature, rainfall, humidity, current temperature, and a bar chart of the previous week's temperatures, along with notepad functionality to add and delete notes. <a href="https://weather-notepad-app.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a></p>
