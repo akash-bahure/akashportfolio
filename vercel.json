@@ -18,7 +18,7 @@
       
       { "src": "/project/(.*)", "dest": "/index.html" },
       { "src": "/allblogs", "dest": "/index.html" },
-      { "src": "/blog", "dest": "https://hashnode-blog-starter-kit-z55p.vercel.app/" }
+      { "src": "/blog", "dest": "https://hashnode-blog-starter-kit-z55p.vercel.app/" },
       { "src": "/(.*)", "dest": "/dist/index.html" }
         
         
