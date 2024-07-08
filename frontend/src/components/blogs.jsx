@@ -79,7 +79,7 @@ const Blogs = () => {
             </div>
           ))}
         </div>
-        <button className="download-button"><Link to="/allblogs">View All Blogs</Link></button>
+        <button className="download-button"><Link to="/blog">View All Blogs</Link></button>
       </div>
     </section>
   );
