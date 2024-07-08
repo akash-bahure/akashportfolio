@@ -80,6 +80,13 @@ const BlogPost = () => {
                 return <code className="inline-code" {...props}>{children}</code>;
               }
             },
+            img({ node, ...props }) {
+              return (
+                <p style={{ textAlign: 'center' }}>
+                  <img {...props} style={{ maxWidth: '100%', height: 'auto' }} />
+                </p>
+              );
+            },
           }}
         />
       </div>
