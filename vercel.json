@@ -17,7 +17,7 @@
       { "src": "/api/(.*)", "dest": "/backend/server.js" },
       
       { "src": "/project/(.*)", "dest": "/index.html" },
-      { "src": "/allblogs", "dest": "/index.html" },
+      { "src": "/blog", "dest": "/index.html" },
      { "src": "/blog/(.*)", "dest": "/index.html" },
       { "src": "/(.*)", "dest": "/dist/index.html" }
         
