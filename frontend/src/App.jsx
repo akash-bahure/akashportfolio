@@ -43,7 +43,7 @@ function App() {
       ),
     },
     {
-      path: '/allblogs',
+      path: '/blog',
       element: <><Header/><AllBlogs /></>,
     },
     {
