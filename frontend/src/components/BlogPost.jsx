@@ -62,11 +62,10 @@ const BlogPost = () => {
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error fetching post: {error.message}</p>;
 
-  const CustomImage = ({ alt, src, align }) => {
-    const alignment = align || 'center';
+  const CustomImage = ({ alt, src }) => {
     const style = {
       display: 'block',
-      margin: alignment === 'center' ? '0 auto' : alignment === 'left' ? '0 auto 0 0' : '0 0 0 auto',
+      margin: '0 auto',
     };
 
     return <img src={src} alt={alt} style={style} />;
@@ -90,9 +89,8 @@ const BlogPost = () => {
                 return <code className="inline-code" {...props}>{children}</code>;
               }
             },
-           img: ({ node, ...props }) => {
-              const align = node.properties.align;
-              return <CustomImage {...props} align={align} />;
+            img: ({ node, ...props }) => {
+              return <CustomImage {...props} />;
             },
           }}
         />
