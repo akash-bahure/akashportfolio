@@ -61,9 +61,7 @@ const BlogPost = () => {
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error fetching post: {error.message}</p>;
-function ImageRenderer({ src, alt, title }) {
-  return <img src={src} alt={alt} title={title} style={{ maxWidth: '100%' }} />;
-}
+
   return (
     <div ref={postContainerRef} className="post-container">
       <h2 className="post-title">{post.title}</h2>
@@ -82,7 +80,14 @@ function ImageRenderer({ src, alt, title }) {
                 return <code className="inline-code" {...props}>{children}</code>;
               }
             },
-            img: ImageRenderer
+            img({ node, ...props }) {
+              const { align, ...rest } = props;
+              return (
+                <div style={{ textAlign: align || 'center' }}>
+                  <img {...rest} style={{ maxWidth: '100%', height: 'auto' }} />
+                </div>
+              );
+            },
           }}
         />
       </div>
