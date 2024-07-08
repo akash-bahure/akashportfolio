@@ -132,8 +132,6 @@ app.get('/api/blogs/', async (req, res) => {
 const host = process.env.HASHNODE_HOST;
 app.get('/api/blogs/:slug', async (req, res) => {
   const { slug } = req.params;
-  const host = 'your-hashnode-host'; // Replace with your actual Hashnode host
-
   const query = `
     query SinglePublicationPost($host: String, $slug: String!) {
       publication(host: $host) {
@@ -160,11 +158,7 @@ app.get('/api/blogs/:slug', async (req, res) => {
       }
     });
 
-    let postData = response.data.data.publication.post;
-
-    // Preprocess the markdown content to center images
-    postData.content.markdown = postData.content.markdown.replace(/!\[(.*?)\]\((.*?)\)/g, '<p align="center"><img src="$2" alt="$1"></p>');
-
+    const postData = response.data.data.publication.post;
     res.json(postData);
   } catch (error) {
     console.error('Error fetching post:', error);
