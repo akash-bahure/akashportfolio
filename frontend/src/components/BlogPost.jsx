@@ -82,9 +82,7 @@ const BlogPost = () => {
             },
             img({ node, ...props }) {
               return (
-                <p style={{ textAlign: 'center' }}>
-                  <img {...props} style={{ maxWidth: '100%', height: 'auto' }} />
-                </p>
+                <img {...props} style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '0 auto' }} />
               );
             },
           }}
