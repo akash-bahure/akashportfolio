@@ -160,14 +160,16 @@ app.get('/api/blogs/:slug', async (req, res) => {
 
     const postData = response.data.data.publication.post;
 
-    // Function to remove align="center" from image links in markdown content
-    const removeAlignCenter = (markdownContent) => {
-      const regex = /align="center"/g;
-      return markdownContent.replace(regex, '');
+      // Function to remove align="center" and center all images with the same size
+    const modifyImages = (markdownContent) => {
+      const regex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+      return markdownContent.replace(regex, (match, alt, url) => {
+        return `<div style="text-align:center;"><img src="${url}" alt="${alt}" style="width:100%; max-width:600px; height:auto;"></div>`;
+      });
     };
 
     // Update the markdown content
-    postData.content.markdown = removeAlignCenter(postData.content.markdown);
+    postData.content.markdown = modifyImages(postData.content.markdown);
 
     res.json(postData);
   } catch (error) {
