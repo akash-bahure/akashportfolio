@@ -1,3 +1,4 @@
+// BlogPost.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
@@ -6,6 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import CodeBlock from '../assets/supportingFiles/codeblock.jsx'; 
 import '../assets/css/blogpost.css';
 import axios from 'axios';
+import ImageComponent from './blogImages.jsx'; // Adjust the path based on your project structure
 
 const BlogPost = () => {
   const [post, setPost] = useState(null);
@@ -51,18 +53,10 @@ const BlogPost = () => {
     if (postContainerRef.current) {
       observer.observe(postContainerRef.current);
     }
-
-    
   }, [post]);
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error fetching post: {error.message}</p>;
-
-  const CustomImage = ({ alt, src }) => {
-
-
-    return <img src={src} alt={alt} className="custom-image" />;
-  };
 
   return (
     <div ref={postContainerRef} className="post-container">
@@ -83,7 +77,7 @@ const BlogPost = () => {
               }
             },
             img: ({ node, ...props }) => {
-              return <CustomImage {...props} />;
+              return <ImageComponent {...props} />;
             },
           }}
         />

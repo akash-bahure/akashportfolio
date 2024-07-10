@@ -112,7 +112,7 @@ a {
   text-decoration: none;
 }
 .post-container {
-  opacity: 0; /* Initially hide the post container */
+  opacity: 1; /* Initially hide the post container */
 }
 
 .animate {
