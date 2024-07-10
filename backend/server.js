@@ -160,16 +160,28 @@ app.get('/api/blogs/:slug', async (req, res) => {
 
     const postData = response.data.data.publication.post;
 
-      // Function to remove align="center" and center all images with the same size
-    const modifyImages = (markdownContent) => {
-      const regex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+    // Function to remove align attributes
+    const removeAlignAttribute = (markdownContent) => {
+      const regex = / align="center"/g;
+      return markdownContent.replace(regex, '');
+    };
+
+    // Function to modify images: center all images with the same size
+    const centerAndResizeImages = (markdownContent) => {
+      const regex = /!\[([^\]]*)\]\(([^)]+?)\)/g;
       return markdownContent.replace(regex, (match, alt, url) => {
-        return `<div style="text-align:center;"><img src="${url}" alt="${alt}" style="width:100%; max-width:600px; height:auto;"></div>`;
+        return `<div><img src="${url}" alt="${alt}"></div>`;
       });
     };
 
     // Update the markdown content
-    postData.content.markdown = modifyImages(postData.content.markdown);
+    let updatedMarkdown = removeAlignAttribute(postData.content.markdown);
+    
+
+    updatedMarkdown = centerAndResizeImages(updatedMarkdown);
+
+
+    postData.content.markdown = updatedMarkdown;
 
     res.json(postData);
   } catch (error) {
@@ -177,8 +189,6 @@ app.get('/api/blogs/:slug', async (req, res) => {
     res.status(500).json({ error: 'Error fetching post' });
   }
 });
-
-
 
 // Get __dirname equivalent in ES module
 const __filename = fileURLToPath(import.meta.url);
@@ -224,5 +234,6 @@ app.get('*', (req, res) => {
 });
 // Start the server
 app.listen(port_no, () => {
+  console.log(process.env.HASHNODE_USERNAME)
   console.log(`Server is running on port ${port_no}`);
 });

@@ -52,23 +52,16 @@ const BlogPost = () => {
       observer.observe(postContainerRef.current);
     }
 
-    return () => {
-      if (postContainerRef.current) {
-        observer.unobserve(postContainerRef.current);
-      }
-    };
+    
   }, [post]);
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error fetching post: {error.message}</p>;
 
   const CustomImage = ({ alt, src }) => {
-    const style = {
-      display: 'block',
-      margin: '0 auto',
-    };
 
-    return <img src={src} alt={alt} style={style} />;
+
+    return <img src={src} alt={alt} className="custom-image" />;
   };
 
   return (
