@@ -159,13 +159,22 @@ app.get('/api/blogs/:slug', async (req, res) => {
     });
 
     const postData = response.data.data.publication.post;
+
+    // Function to remove align="center" from image links in markdown content
+    const removeAlignCenter = (markdownContent) => {
+      const regex = /align="center"/g;
+      return markdownContent.replace(regex, '');
+    };
+
+    // Update the markdown content
+    postData.content.markdown = removeAlignCenter(postData.content.markdown);
+
     res.json(postData);
   } catch (error) {
     console.error('Error fetching post:', error);
     res.status(500).json({ error: 'Error fetching post' });
   }
 });
-
 
 
 
