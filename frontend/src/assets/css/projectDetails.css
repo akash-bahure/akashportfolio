@@ -1,5 +1,5 @@
     .project-detail {
-        max-width: 1200px;
+        max-width: 70%;
         margin: 0 auto;
         padding: 20px;
         background-color: #fff;
@@ -129,7 +129,9 @@
     
     @media (max-width: 768px) {
         
-       
+        .project-detail {
+            max-width: 100%;
+          }
         .project-title h1{
             font-size: 1.7rem;
             padding-top: 35px;

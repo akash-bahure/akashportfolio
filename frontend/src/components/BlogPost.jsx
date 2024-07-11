@@ -60,8 +60,17 @@ const BlogPost = () => {
 
   return (
     <div ref={postContainerRef} className="post-container">
-      <h2 className="post-title">{post.title}</h2>
+      <h1 className="post-title"><strong>{post.title}</strong></h1>
       {post.coverImage && <img src={post.coverImage.url} alt={post.title} className="post-image" />}
+      
+      <div className="post-details">
+  <div className="read-time">{post.readTimeInMinutes} min read</div>
+  <div className="reaction-count"><i className="bi-heart-fill"></i>{post.reactionCount} likes</div>
+  <div className="published-at">Published on {new Date(post.publishedAt).toLocaleDateString()}</div>
+</div>
+      
+      
+      
       <div className="post-content">
         <ReactMarkdown
           children={post.content.markdown}

@@ -102,6 +102,9 @@ app.get('/api/blogs/', async (req, res) => {
                     coverImage {
                       url
                     }
+                       readTimeInMinutes
+          reactionCount
+          publishedAt
                   }
                 }
               }
@@ -143,6 +146,9 @@ app.get('/api/blogs/:slug', async (req, res) => {
           coverImage {
             url
           }
+          readTimeInMinutes
+          reactionCount
+          publishedAt
         }
       }
     }

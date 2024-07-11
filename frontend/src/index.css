@@ -736,36 +736,54 @@ body {
   /*--------------------------------------------------------------
   # Blogs
   --------------------------------------------------------------*/
+  .blogs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+  
   .blogs .blog-item {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 3px;
     transition: all 0.3s ease-in-out;
+    flex: 1 1 calc(33.333% - 40px); /* 3 columns with 20px gap */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
-  .read-more{
+  
+  .read-more {
     text-decoration: none;
     color: black;
   }
   
   .blogs .blog-item:hover {
-    transform: scale(1.05); /* Adjust the scale factor as needed */
-}
+    transform: scale(1.01); /* Adjust the scale factor as needed */
+  }
+  .row>* {
+    margin-bottom: 20px;
+  }
   .blogs .blog-item img {
     width: 100%;
     height: 20vh;
     border-radius: 10px;
     margin-bottom: 15px;
+    /* Ensure images cover the space without distortion */
   }
   
- 
+  .blogs .blog-item .blog-info {
+    flex-grow: 1; /* Ensure blog info takes up available space */
+  }
   
   .blogs .blog-item .blog-info h4 {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
     text-decoration: none;
   }
   
@@ -774,14 +792,11 @@ body {
     margin-bottom: 15px;
   }
   
- 
-  
   .blog-item {
     opacity: 0; /* Initially hide the blog items */
   }
   
   .animate {
-  
     animation: fadeIn 1s ease-in-out forwards; /* Apply fade-in animation when the element becomes visible */
   }
   
@@ -794,8 +809,50 @@ body {
     }
   }
   
+  .post-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
   
-
+  .post-details > div {
+    margin: 0 10px;
+  }
+  
+  .read-time, .reaction-count, .published-at {
+    font-size: 14px;
+  }
+  
+  .reaction-count i {
+    margin-right: 5px;
+    color: #e74c3c; /* Heart icon color */
+  }
+  
+  .read-time {
+    color: #3498db;
+  }
+  
+  .published-at {
+    color: #2ecc71;
+  }
+  
+  @media (max-width: 600px) {
+    .blogs .blog-item {
+      flex: 1 1 calc(100% - 40px); /* Full width for smaller screens */
+    }
+  
+    .post-details > div {
+      margin: 5px 0;
+    }
+  }
+  
+  
  
   /*--------------------------------------------------------------
   # Contact
