@@ -1,0 +1,84 @@
+.toolbar-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .toolbar {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 100px;
+    background-color: #333333c4; /* Adjust to match your design */
+    color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .toolbar.hidden {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  
+  .toolbar-item {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: color 0.6s ease;
+  }
+  .toolbar-item:hover {
+    color: rgb(110, 183, 255); 
+    
+  }
+  .toolbar-item i {
+    margin-left:   30px;
+    margin-right: 30px;
+  }
+  
+ /* toolbar.css */
+.share-container {
+  opacity: 0; /* Start hidden */
+  visibility: hidden; /* Prevent interaction when hidden */
+  position: absolute;
+  bottom: 50px;
+  left: 71%;
+  transform: translateX(-50%);
+ 
+  z-index: 1000;
+  text-align: center;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Add transition */
+}
+
+.share-container.show {
+  opacity: 1; /* Show when adding 'show' class */
+  visibility: visible;
+}
+
+.share-options {
+  display: flex;
+  flex-direction: column; /* Change to row */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 10px; /* Space between icons */
+  padding: 10px;
+  background-color: #f8f9faf5; /* Light background */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.share-icon {
+  color: #333; /* Icon color */
+  text-decoration: none;
+  font-size: 24px; /* Icon size */
+  transition: color 0.3s;
+}
+
+.share-icon:hover {
+  color: #007bff; /* Hover color */
+}

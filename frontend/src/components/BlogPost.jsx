@@ -8,6 +8,8 @@ import CodeBlock from '../assets/supportingFiles/codeblock.jsx';
 import '../assets/css/blogpost.css';
 import axios from 'axios';
 import ImageComponent from './blogImages.jsx'; // Adjust the path based on your project structure
+import Toolbar from './toolbar.jsx';
+
 
 const BlogPost = () => {
   const [post, setPost] = useState(null);
@@ -64,9 +66,9 @@ const BlogPost = () => {
       {post.coverImage && <img src={post.coverImage.url} alt={post.title} className="post-image" />}
       
       <div className="post-details">
-  <div className="read-time">{post.readTimeInMinutes} min read</div>
+  <div className="read-time"><i class='bx bx-book-reader'></i>{post.readTimeInMinutes} min read</div>
   <div className="reaction-count"><i className="bi-heart-fill"></i>{post.reactionCount} likes</div>
-  <div className="published-at">Published on {new Date(post.publishedAt).toLocaleDateString()}</div>
+  <div className="published-at"><i class='bx bx-calendar' ></i>{new Date(post.publishedAt).toLocaleDateString()}</div>
 </div>
       
       
@@ -90,6 +92,8 @@ const BlogPost = () => {
             },
           }}
         />
+        <div className="toolbar-container"><Toolbar postId={post.id} postSlug={post.slug}/></div>
+         
       </div>
     </div>
   );

@@ -75,9 +75,9 @@ const Blogs = () => {
                     <h4>{blog.title}</h4>
                   </div>
                   <div className="post-details">
-  <div className="read-time">{blog.readTimeInMinutes} min read</div>
+  <div className="read-time"><i class='bx bx-book-reader'></i>{blog.readTimeInMinutes} min read</div>
   <div className="reaction-count"><i className="bi-heart-fill"></i>{blog.reactionCount} likes</div>
-  <div className="published-at">Published on {new Date(blog.publishedAt).toLocaleDateString()}</div>
+  <div className="published-at"><i class='bx bx-calendar' ></i>{new Date(blog.publishedAt).toLocaleDateString()}</div>
 </div>
 
                 </div>

@@ -139,6 +139,8 @@ app.get('/api/blogs/:slug', async (req, res) => {
     query SinglePublicationPost($host: String, $slug: String!) {
       publication(host: $host) {
         post(slug: $slug) {
+        slug  
+        id
           title
           content {
             markdown
