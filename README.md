@@ -214,4 +214,4 @@ Make a GET request to the `/api/projects` endpoint to fetch all the projects.
 - **Steps:** Configure the Vercel project with the GitHub repository, set up environment variables in Vercel, and ensure the `vercel.json` configuration file includes necessary routes and settings.
 
 ## Live on 
--- https://bhavesh-jadhav-portfolio.vercel.app/
+-- https://bhaveshjadhav.online/
