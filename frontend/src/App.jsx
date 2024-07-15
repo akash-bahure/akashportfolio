@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Hero from './components/hero.jsx'
@@ -64,6 +65,7 @@ function App() {
   return <>
             <RouterProvider router={router} />
             <Analytics />
+            <SpeedInsights />
           </>;
 
 }
