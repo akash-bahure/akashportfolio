@@ -66,9 +66,9 @@ const BlogPost = () => {
       {post.coverImage && <img src={post.coverImage.url} alt={post.title} className="post-image" />}
       
       <div className="post-details">
-  <div className="read-time"><i class='bx bx-book-reader'></i>{post.readTimeInMinutes} min read</div>
+  <div className="read-time"><i className='bx bx-book-reader'></i>{post.readTimeInMinutes} min read</div>
   <div className="reaction-count"><i className="bi-heart-fill"></i>{post.reactionCount} likes</div>
-  <div className="published-at"><i class='bx bx-calendar' ></i>{new Date(post.publishedAt).toLocaleDateString()}</div>
+  <div className="published-at"><i className='bx bx-calendar' ></i>{new Date(post.publishedAt).toLocaleDateString()}</div>
 </div>
       
       

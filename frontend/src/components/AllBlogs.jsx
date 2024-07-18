@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import SEOManager from './SEOManager';
+import { HelmetProvider } from 'react-helmet-async';
 
 const AllBlogs = () => {
+  const title = 'All Blogs | Bhavesh Jadhav - Web Development & Programming Insights';
+  const description = 'Explore all blogs by Bhavesh Jadhav, featuring expert insights on web development, programming tips, tutorials, and the latest trends in software engineering. Stay updated with practical advice, coding tutorials, and in-depth articles to enhance your development skills.';
+  const keywords = 'Bhavesh Jadhav blogs, web development insights, programming tips, coding tutorials, software engineering articles, JavaScript guides, React tutorials, frontend development tips, backend development strategies, tech trends, developer resources';
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -61,6 +66,10 @@ const AllBlogs = () => {
   return (
     <main id="main">
       <section id="blogs" className="blogs section-bg">
+      <HelmetProvider>
+     
+      <SEOManager title={title} description={description} keywords={keywords} />
+      
         <div className="container">
           <div className="section-title">
             <h2>All Blogs</h2>
@@ -75,9 +84,9 @@ const AllBlogs = () => {
                       <h4>{blog.title}</h4>
                     </div>
                     <div className="post-details">
-  <div className="read-time"><i class='bx bx-book-reader'></i>{blog.readTimeInMinutes} min read</div>
+  <div className="read-time"><i className='bx bx-book-reader'></i>{blog.readTimeInMinutes} min read</div>
   <div className="reaction-count"><i className="bi-heart-fill"></i>{blog.reactionCount} likes</div>
-  <div className="published-at"><i class='bx bx-calendar' ></i>{new Date(blog.publishedAt).toLocaleDateString()}</div>
+  <div className="published-at"><i className='bx bx-calendar' ></i>{new Date(blog.publishedAt).toLocaleDateString()}</div>
 </div>
                   </div>
                 </Link>
@@ -85,6 +94,7 @@ const AllBlogs = () => {
             ))}
           </div>
         </div>
+        </HelmetProvider>
       </section>
     </main>
   );
