@@ -14,7 +14,6 @@ import AllBlogs from './components/AllBlogs.jsx';
 import BlogPost from './components/BlogPost';
 import ContactForm from './components/contact.jsx';
 import ProjectDetails from './components/projectDetails.jsx';
-import ErrorBoundary from './assets/supportingFiles/ErrorBoundary.jsx';
 import NotFound from './components/NotFound';
 import Footer from './components/footer.jsx';
 import SEOManager from './components/SEOManager';
@@ -25,72 +24,76 @@ import './assets/vendor/boxicons/css/boxicons.min.css';
 import './assets/vendor/glightbox/css/glightbox.min.css';
 import { Analytics } from "@vercel/analytics/react";
 import usePageTracking from './components/usePageTracking';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <HelmetProvider>
+        <SEOManager />
+        <Header />
+        <Hero />
+        <main id="main">
+          <section id="Portfolio"><Portfolio /></section>
+          <section id="Blogs"><Blogs /></section>
+          <section id="Skills"><Skills /></section>
+          <section id="Resume"><Resume /></section>
+          <section id="About"><About /></section>
+          <section id="ContactForm"><ContactForm /></section>
+          <Footer />
+        </main>
+      </HelmetProvider>
+    ),
+  },
+  {
+    path: '/blog',
+    element: (
+      <>
+        <Header />
+        <AllBlogs />
+      </>
+    ),
+  },
+  {
+    path: '/blog/:slug',
+    element: (
+      <>
+        <Header />
+        <main id="main"><BlogPost /></main>
+      </>
+    ),
+  },
+  {
+    path: '/project/:slug',
+    element: (
+      <>
+        <Header />
+        <main id="main"><ProjectDetails /></main>
+      </>
+    ),
+  },
+  {
+    path: '*',
+    element: (
+      <>
+        <NotFound />
+      </>
+    ),
+  },
+]);
+
 function App() {
-  usePageTracking();
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: (
-        <HelmetProvider>
-          <SEOManager />
-          <Header />
-          <Hero />
-          <main id="main">
-            <section id="Portfolio"><Portfolio /></section>
-            <section id="Blogs"><Blogs /></section>
-            <section id="Skills"><Skills /></section>
-            <section id="Resume"><Resume /></section>
-            <section id="About"><About /></section>
-            <section id="ContactForm"><ContactForm /></section>
-            <Footer />
-          </main>
-        </HelmetProvider>
-      ),
-    },
-    {
-      path: '/blog',
-      element: (
-       <>
-       <Header />
-       <AllBlogs />
-       </>
-       
-      ),
-    },
-    {
-      path: '/blog/:slug',
-      element: (
-        <>
-          <Header />
-          <main id="main"><BlogPost /></main>
-       </>
-      ),
-    },
-    {
-      path: '/project/:slug',
-      element: (
-        <>
-          <Header />
-          <main id="main"><ProjectDetails /></main>
-       </>
-      ),
-    },
-    {
-      path: '*',
-      element: (
-        <>
-          <NotFound />
-        </>
-      ),
-    },
-  ]);
- 
   return (
-    <>
-      <RouterProvider router={router} />
+    <RouterProvider router={router}>
+      <PageTrackingWrapper />
       <Analytics />
-    </>
+    </RouterProvider>
   );
+}
+
+const PageTrackingWrapper = () => {
+  usePageTracking();
+  return null;
 }
 
 export default App;
