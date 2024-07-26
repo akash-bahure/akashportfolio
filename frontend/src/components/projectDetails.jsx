@@ -6,18 +6,19 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import CodeBlock from '../assets/supportingFiles/codeblock.jsx';
 import '../assets/css/projectDetails.css';
+import SEOManager from './SEOManager';
+import { HelmetProvider } from 'react-helmet-async';
 
 const ProjectDetails = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`/api/projects/${id}`);
+        const response = await axios.get(`/api/projects/${slug}`);
         setProject(response.data);
         setLoading(false);
       } catch (error) {
@@ -27,7 +28,7 @@ const ProjectDetails = () => {
     };
 
     fetchProject();
-  }, [id]);
+  }, [slug]);
 
  
 
@@ -41,8 +42,14 @@ const ProjectDetails = () => {
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error fetching project: {error.message}</p>;
-
+  const title = project.title;
+  const description = project.ogDesc;
+  const keywords = project.keywords;
+  const ogImage = project.ogImage;
+  const ogURL = `https://www.bhaveshjadhav.online/project/${project.slug}`;
   return (
+    <HelmetProvider>
+    <SEOManager title={title} description={description} keywords={keywords} ogImage={ogImage} type={'article'} ogURL={ogURL}/>
     <div className="project-detail">
         <div className="project-title">
       <h1>Project {project.id} : {project.name}</h1></div>
@@ -107,6 +114,7 @@ const ProjectDetails = () => {
         />
       </div>
     </div>
+        </HelmetProvider>
   );
 };
 

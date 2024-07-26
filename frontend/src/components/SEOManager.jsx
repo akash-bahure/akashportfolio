@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SEOManager = ({ title: propTitle, description: propDescription, keywords: propKeywords }) => {
+const SEOManager = ({ title: propTitle, description: propDescription, keywords: propKeywords, ogImage: propImage, type: propType , ogURL: propURL}) => {
   const [currentSection, setCurrentSection] = useState('Home');
 
   const handleScroll = () => {
@@ -92,12 +92,28 @@ const SEOManager = ({ title: propTitle, description: propDescription, keywords: 
         return 'Bhavesh Jadhav, web development, portfolio, software engineer, JavaScript developer, frontend developer, backend developer, full stack developer, coding projects, professional achievements';
     }
   };
+   const getImage =() =>{
+    return (propImage) ? propImage :'../../public/favicon.png'
+   }
+   const getType =() =>{
+    return (propType) ? propType : 'website';
+   }
+   const getURL =() =>{
+    return (propURL) ? propURL :'https://www.bhaveshjadhav.online/';
+   }
 
   return (
     <Helmet>
       <title>{getTitle()}</title>
+      <meta property="og:title" content={getTitle()} />
       <meta name="description" content={getDescription()} />
+      <meta property="og:description" content={getDescription()} />
       <meta name="keywords" content={getKeywords()} />
+      <meta property="og:keywords" content={getKeywords()} />
+      <meta name="image" property="og:image" content={getImage()} />
+      <meta property="og:site_name" content="Bhavesh Jadhav" />
+      <meta property='og:type' content= {getType()}/>
+      <meta property='og:url' content= {getURL()}/>
     </Helmet>
   );
 };

@@ -106,7 +106,7 @@ const Portfolio = () => {
               className={`col-lg-4 col-md-6 portfolio-item filter-${project.category} ${activeFilter === '*' || activeFilter === `.filter-${project.category}` ? 'show' : 'hide'}`}
             >
               <div className="portfolio-wrap">
-              <Link to={`/project/${project.id}`} className="portfolio-source-btn">
+              <Link to={`/project/${project.slug}`} className="portfolio-source-btn">
                 <div className="portfolio-info">
                   <h4>{project.name}</h4>
                 </div>
@@ -115,7 +115,7 @@ const Portfolio = () => {
       )}
       </Link>
                 <div className="portfolio-links">
-                  <Link to={`/project/${project.id}`} className="portfolio-source-btn">Details</Link> 
+                  <Link to={`/project/${project.slug}`} className="portfolio-source-btn">Details</Link> 
                    <a href={project.sourceCode} className="portfolio-source-btn">Source code</a>
                   <a href={project.livePreview} className="portfolio-preview-btn">Live Preview</a>
                 </div>

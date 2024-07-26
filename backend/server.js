@@ -139,7 +139,18 @@ app.get('/api/blogs/:slug', async (req, res) => {
     query SinglePublicationPost($host: String, $slug: String!) {
       publication(host: $host) {
         post(slug: $slug) {
-        slug  
+        slug 
+        seo {
+              title
+              description
+            }
+        ogMetaData {
+              image
+            }
+        tags {
+              id
+              name
+            } 
         id
           title
           content {
@@ -220,14 +231,14 @@ app.get('/api/projects', (req, res) => {
 });
 
 // Endpoint to get a single project by ID
-app.get('/api/projects/:id', (req, res) => {
-  const projectId = parseInt(req.params.id, 10);
+app.get('/api/projects/:slug', (req, res) => {
+  const projectSlug = req.params.slug;
   fs.readFile(projectsFilePath, (err, data) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to read projects file' });
     }
     const projects = JSON.parse(data);
-    const project = projects.find(p => p.id === projectId);
+    const project = projects.find(p => p.slug === projectSlug);
     if (project) {
       res.json(project);
     } else {

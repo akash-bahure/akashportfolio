@@ -9,6 +9,8 @@ import '../assets/css/blogpost.css';
 import axios from 'axios';
 import ImageComponent from './blogImages.jsx'; // Adjust the path based on your project structure
 import Toolbar from './toolbar.jsx';
+import SEOManager from './SEOManager';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const BlogPost = () => {
@@ -59,8 +61,15 @@ const BlogPost = () => {
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error fetching post: {error.message}</p>;
-
+  const title = post.seo.title;
+  const description = post.seo.description;
+  const keywords = post.tags.map(tag => tag.name).join(', ');
+  const ogImage = post.ogMetaData.image;
+  const ogURL = `https://www.bhaveshjadhav.online/blog/${post.slug}`;
   return (
+    <HelmetProvider>
+     
+      <SEOManager title={title} description={description} keywords={keywords} ogImage={ogImage} type={'article'} ogURL={ogURL}/>
     <div ref={postContainerRef} className="post-container">
       <h1 className="post-title"><strong>{post.title}</strong></h1>
       {post.coverImage && <img src={post.coverImage.url} alt={post.title} className="post-image" />}
@@ -96,6 +105,7 @@ const BlogPost = () => {
          
       </div>
     </div>
+    </HelmetProvider>
   );
 };
 
