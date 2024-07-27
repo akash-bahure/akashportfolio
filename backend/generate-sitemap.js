@@ -41,7 +41,7 @@ const generateSitemap = async () => {
       </urlset>`;
 
     // Write sitemap to the public directory
-    const publicDir = path.join(__dirname, '../');
+    const publicDir = path.join(__dirname, '../frontend/public');
     await fs.ensureDir(publicDir);
     await fs.writeFile(path.join(publicDir, 'sitemap.xml'), sitemap);
 
