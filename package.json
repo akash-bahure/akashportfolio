@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:sitemap\"",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && nodemon server.js",
+    "dev:sitemap": "cd backend && nodemon generate-sitemap.js",
     "build": "cd frontend && vite build",
     "vercel-build": "npm run build",
     "start": "npm run dev"
@@ -19,6 +20,7 @@
     "react": "^18.3.1",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.3.1",
+    "react-ga": "^3.3.1",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.5",
     "react-markdown": "^9.0.1",

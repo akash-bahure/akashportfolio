@@ -13,6 +13,7 @@ import SEOManager from './SEOManager';
 import { HelmetProvider } from 'react-helmet-async';
 
 
+
 const BlogPost = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -76,6 +77,7 @@ const BlogPost = () => {
       
       <div className="post-details">
   <div className="read-time"><i className='bx bx-book-reader'></i>{post.readTimeInMinutes} min read</div>
+  <div className="reaction-count"><i className="fa fa-eye" aria-hidden="true"></i>{post.views} views</div>
   <div className="reaction-count"><i className="bi-heart-fill"></i>{post.reactionCount} likes</div>
   <div className="published-at"><i className='bx bx-calendar' ></i>{new Date(post.publishedAt).toLocaleDateString()}</div>
 </div>

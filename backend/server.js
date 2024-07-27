@@ -140,6 +140,7 @@ app.get('/api/blogs/:slug', async (req, res) => {
       publication(host: $host) {
         post(slug: $slug) {
         slug 
+        views
         seo {
               title
               description
