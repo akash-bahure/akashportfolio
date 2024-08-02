@@ -3,6 +3,7 @@
 This project is a personal portfolio website that showcases various projects and allows users to contact the owner via a contact form. It integrates with Bravo SMTP for email sending and fetches blog posts from Hashnode using their API. The frontend is built with React and Vite, and the backend is built with Node.js.
 
 ## Overview
+akash bahure
 
 - **Contact Form:** Users can send messages to the owner.
 - **Bravo SMTP:** Handles email sending.
